@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta
+      name="description"
+      content="Cañapack - Soluciones circulares con fibras agroindustriales."
+    />
+    <link rel="icon" href="./img/favicon.ico" />
+    <meta property="og:title" content="Cañapack Colombia" />
+    <meta
+      property="og:description"
+      content="Conectamos residuos con industria para crear valor sostenible."
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>contacto</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/main.css" />
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+    <script type="text/javascript">
+      emailjs.init("5qEcEu8YLFKxa-3dV");
+    </script>
+  </head>
+  <body>
+    <header class="contactosheader" id="inicio" role="banner">
+      <nav class="navbar" aria-label="Menú principal">
+        <div class="nav-container">
+          <a href="./index.html" class="logo" aria-label="Inicio - Cañapack">
+            <img src="./img/logo.png" alt="Logo Cañapack Colombia" />
+          </a>
+
+          <button
+            id="menu-toggle"
+            class="menu-toggle"
+            aria-controls="nav-links"
+            aria-expanded="false"
+            aria-label="Abrir menú"
+          >
+            <span class="sr-only">Abrir menú</span>
+            <i class="fas fa-bars" aria-hidden="true"></i>
+          </button>
+
+          <ul id="nav-links" class="nav-links">
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./Agropulp.html">Agropulp Green Pulp</a></li>
+            <li><a href="./negocio.html">Nuestro negocio</a></li>
+            <li><a href="./clientes.html">Clientes</a></li>
+            <li><a href="./contacto.html" class="btn-contacto">Contacto</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="contact-section">
+        <h2>Comunícate con nosotros</h2>
+        <div class="contact-container">
+          <!-- Formulario -->
+          <div class="form2-container">
+            <p class="intro">
+              ¡Estamos aquí para escucharte! En Cañapack, valoramos tu interés,
+              preguntas y comentarios. No dudes en contactarnos para explorar
+              soluciones, responder consultas o colaborar en proyectos. Contamos
+              con una fuerte presencia en Latinoamérica y asociaciones
+              estratégicas con líderes globales.
+            </p>
+            <p class="sub-text">
+              ¿Tienes alguna consulta o te interesa alguna de nuestras
+              soluciones? Escríbenos y nos pondremos en contacto contigo.
+            </p>
+
+            <form id="contact-form">
+              <div class="form2-group">
+                <input
+                  type="text"
+                  name="nombre"
+                  placeholder="Nombre"
+                  required
+                />
+                <input type="text" name="empresa" placeholder="Empresa" />
+              </div>
+              <div class="form2-group">
+                <input
+                  type="email"
+                  name="correo"
+                  placeholder="Correo Electrónico"
+                  required
+                />
+                <input type="tel" name="celular" placeholder="Celular" />
+              </div>
+              <textarea
+                placeholder="Mensaje"
+                name="mensaje"
+                required
+              ></textarea>
+              <button type="submit" class="btn-submit">Enviar</button>
+            </form>
+          </div>
+
+          <!-- Información de contacto -->
+          <div class="info-container">
+            <h3>INFORMACIÓN DE CONTACTO</h3>
+
+            <div class="country">
+              <h4>
+                Colombia
+                <img src="https://flagcdn.com/w20/co.png" alt="Colombia" />
+              </h4>
+              <p><i class="fas fa-map-marker-alt"></i> Dirección:</p>
+              <p><i class="fas fa-envelope"></i> comercial@canyapack.com.co</p>
+              <p><i class="fas fa-phone"></i> Teléfono</p>
+              <a
+                href="https://wa.me/573001234567"
+                target="_blank"
+                class="whatsapp-btn"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+
+            <div class="country">
+              <h4>
+                España <img src="https://flagcdn.com/w20/es.png" alt="España" />
+              </h4>
+              <p><i class="fas fa-map-marker-alt"></i> Dirección</p>
+              <p><i class="fas fa-envelope"></i> info@canyapack.com</p>
+              <p><i class="fas fa-phone"></i> Teléfono</p>
+              <a
+                href="https://wa.me/573001234567"
+                target="_blank"
+                class="whatsapp-btn"
+              >
+                <i class="fab fa-whatsapp"></i> WhatsApp
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <!-- Logo y redes -->
+        <div class="footer-column footer-logo">
+          <img src="./img/logo.png" alt="Cañapack Colombia" />
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="#" aria-label="Twitter"
+              ><i class="fab fa-x-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- Menú -->
+        <div class="footer-column">
+          <p class="column-title">Enlaces</p>
+          <ul class="footer-links">
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./Agropulp.html">Agropulp Green Pulp</a></li>
+            <li><a href="./negocio.html">Nuestro negocio</a></li>
+            <li><a href="./clientes.html">Clientes</a></li>
+            <li><a href="./contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacto Colombia -->
+        <div class="footer-column">
+          <p class="column-title">Colombia</p>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Dirección</li>
+            <li><i class="fas fa-envelope"></i> comercial@canyapack.com.co</li>
+            <li><i class="fas fa-phone"></i> Teléfono</li>
+          </ul>
+        </div>
+
+        <!-- Contacto España -->
+        <div class="footer-column">
+          <p class="column-title">España</p>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Dirección</li>
+            <li><i class="fas fa-envelope"></i> info@canyapack.com</li>
+            <li><i class="fas fa-phone"></i> Teléfono</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Cañapack Colombia. Todos los derechos reservados.</p>
+      </div>
+    </footer>
+    <script src="./js/main.js"></script>
+    <script src="./js/formulario.js"></script>
+  </body>
+</html>
