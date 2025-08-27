@@ -24,6 +24,12 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./css/main.css" />
+    <link rel="preload" href="img/Frame 1.png" as="image" />
+    <link rel="preload" href="img/Frame 10.png" as="image" />
+    <link rel="preload" href="img/Frame 2.png" as="image" />
+    <link rel="preload" href="img/Frame 3.png" as="image" />
+    <link rel="preload" href="img/Frame 4.png" as="image" />
+    <link rel="preload" href="img/Frame 5.png" as="image" />
   </head>
   <body>
     <!-- HEADER / NAVBAR -->
@@ -128,44 +134,58 @@
       </div>
 
       <!-- proceso -->
-      <section class="proceso">
-        <div class="cardsproceso-container">
-          <div
-            class="cardproceso"
-            data-title="Carrusel 1"
-            data-images="./img/bagazo.jpg,./img/bambu.png,./img/bijao.png"
-          >
-            Titulo 1
-          </div>
-          <div class="arrowproceso">→</div>
-          <div
-            class="cardproceso"
-            data-title="Carrusel 2"
-            data-images="https://picsum.photos/600/400?random=4,https://picsum.photos/600/400?random=5,https://picsum.photos/600/400?random=6"
-          >
-            Titulo 2
-          </div>
-          <div class="arrowproceso">→</div>
-          <div
-            class="cardproceso"
-            data-title="Carrusel 3"
-            data-images="https://picsum.photos/600/400?random=7,https://picsum.photos/600/400?random=8,https://picsum.photos/600/400?random=9"
-          >
-            Titulo 3
-          </div>
-        </div>
+<h2 class="titulos">Nuestro Proceso</h2>
+<section class="cardsproceso-container">
+  <article
+    class="cardproceso"
+    data-title="Carrusel 1"
+    data-images="img/Frame 1.png,img/Frame 2.png,img/Frame 4.png"
+    data-bg="img/1.jpg"
+    tabindex="0"
+    role="button"
+    aria-label="Abrir carrusel 1"
+  >
+    <span>Nuestros Aliados</span>
+  </article>
+  <div class="arrowproceso">→</div>
 
-        <!-- Modal Carrusel -->
-        <div class="modal" id="modal">
-          <div class="modal-content">
-            <span class="close">&times;</span>
-            <div class="carouselproceso-title" id="carouselprocesoTitle"></div>
-            <div class="carouselproceso" id="carouselproceso"></div>
-            <button class="prevproceso">&#10094;</button>
-            <button class="nextproceso">&#10095;</button>
-          </div>
-        </div>
-      </section>
+  <article
+    class="cardproceso"
+    data-title="Carrusel 2"
+    data-images="img/proceso4.webp,img/proceso5.webp,img/proceso6.webp"
+    data-bg="img/1.jpg"
+    tabindex="0"
+    role="button"
+    aria-label="Abrir carrusel 2"
+  >
+    <span>Producción de pulpa</span>
+  </article>
+  <div class="arrowproceso">→</div>
+
+  <article
+    class="cardproceso"
+    data-title="Carrusel 3"
+    data-images="img/proceso7.webp,img/proceso8.webp,img/proceso9.webp"
+    data-bg="img/1.jpg"
+    tabindex="0"
+    role="button"
+    aria-label="Abrir carrusel 3"
+  >
+    <span>Clientes</span>
+  </article>
+</section>
+
+<!-- Modal Carrusel -->
+<div class="modal" id="modal" role="dialog" aria-hidden="true">
+  <div class="modal-content">
+    <button class="close" aria-label="Cerrar carrusel">&times;</button>
+    <h2 class="carouselproceso-title" id="carouselTitle"></h2>
+    <div class="carouselproceso" id="carousel"></div>
+    <button class="prevproceso" aria-label="Imagen anterior">&#10094;</button>
+    <button class="nextproceso" aria-label="Imagen siguiente">&#10095;</button>
+  </div>
+</div>
+
 
       <!--banner2 -->
       <section class="cta-section">

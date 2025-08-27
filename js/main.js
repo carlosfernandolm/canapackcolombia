@@ -199,12 +199,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
 const cardsproceso = document.querySelectorAll(".cardproceso");
-const modalproceso = document.getElementById("modal");
-const carouselproceso = document.getElementById("carouselproceso");
-const carouselprocesoTitle = document.getElementById("carouselprocesoTitle");
-const closeproceso = document.querySelector(".close");
+const modal = document.getElementById("modal");
+const carouselproceso = document.getElementById("carousel");
+const carouselTitle = document.getElementById("carouselTitle");
+const close = document.querySelector(".close");
 const prevproceso = document.querySelector(".prevproceso");
 const nextproceso = document.querySelector(".nextproceso");
 
@@ -212,16 +211,43 @@ let currentIndex = 0;
 let images = [];
 let autoplay;
 
-cardsproceso.forEach((card) => {
+// Precargar imágenes
+function precargarImagenes(imgs) {
+  imgs.forEach(src => {
+    const img = new Image();
+    img.src = src;
+  });
+}
+
+// Asignar imágenes de fondo a las tarjetas
+cardsproceso.forEach(card => {
+  if (card.dataset.bg) {
+    card.style.backgroundImage = `url(${card.dataset.bg})`;
+  }
+
+  // Abrir modal con Enter (accesibilidad)
+  card.addEventListener("keydown", e => {
+    if (e.key === "Enter") card.click();
+  });
+
   card.addEventListener("click", () => {
     images = card.dataset.images.split(",");
-    carouselproceso.innerHTML = images
-      .map((img) => `<img src="${img}" alt="imagen">`)
-      .join("");
-    carouselproceso.style.transform = `translateX(0%)`;
+    precargarImagenes(images);
+
+    carouselproceso.innerHTML = "";
+    images.forEach(src => {
+      const img = document.createElement("img");
+      img.src = src;
+      img.alt = "Imagen del carrusel";
+      carouselproceso.appendChild(img);
+    });
+
+    carouselproceso.style.transform = "translateX(0%)";
     currentIndex = 0;
-    carouselprocesoTitle.textContent = card.dataset.title;
-    modalproceso.style.display = "flex";
+    carouselTitle.textContent = card.dataset.title;
+
+    modal.style.display = "flex";
+    modal.setAttribute("aria-hidden", "false");
     startAutoplay();
   });
 });
@@ -230,6 +256,7 @@ function showSlide(index) {
   if (index >= images.length) currentIndex = 0;
   else if (index < 0) currentIndex = images.length - 1;
   else currentIndex = index;
+
   carouselproceso.style.transform = `translateX(${-currentIndex * 100}%)`;
 }
 
@@ -255,14 +282,26 @@ prevproceso.addEventListener("click", () => {
   startAutoplay();
 });
 
-closeproceso.addEventListener("click", () => {
-  modalproceso.style.display = "none";
+close.addEventListener("click", () => {
+  modal.style.display = "none";
+  modal.setAttribute("aria-hidden", "true");
   stopAutoplay();
 });
 
 window.addEventListener("click", (e) => {
-  if (e.target == modalproceso) {
-    modalproceso.style.display = "none";
+  if (e.target === modal) {
+    modal.style.display = "none";
+    modal.setAttribute("aria-hidden", "true");
     stopAutoplay();
   }
 });
+
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modal.style.display === "flex") {
+    modal.style.display = "none";
+    modal.setAttribute("aria-hidden", "true");
+    stopAutoplay();
+  }
+});
+
+

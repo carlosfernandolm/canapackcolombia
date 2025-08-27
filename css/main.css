@@ -844,7 +844,7 @@ section {
 
 /* BOTÓN */
 .boton {
-  margin: 1.5rem 0;
+  margin-bottom: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -852,19 +852,6 @@ section {
   font-family: "Poppins", sans-serif;
 }
 
-/* PROCESO */
-.proceso {
-  font-family: "Poppins", sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #1e1e1e;
-  color: #fff;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
 /* Contenedor de tarjetas */
 .cardsproceso-container {
   display: flex;
@@ -877,59 +864,73 @@ section {
 
 /* Flechas entre tarjetas */
 .arrowproceso {
-  font-size: 2rem;
-  color: #00ffcc;
+  font-size: 4rem;
+  color: #015015;
   align-self: center;
   animation: pulse 1.5s infinite;
   transition: all 0.3s ease;
 }
 
 @keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
-  50% {
-    transform: scale(1.2);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 0.7;
-  }
+  0% { transform: scale(1); opacity: 0.7; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.7; }
 }
 
 /* Tarjetas */
 .cardproceso {
-  width: 280px;
-  height: 380px;
-  background: #fff;
-  color: #000;
+  position: relative;
+  flex: 1 1 clamp(280px, 30vw, 500px);
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   border-radius: 20px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  font-weight: bold;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
+  text-align: center;
+  padding: 1rem;
+  overflow: hidden;
 }
 
-.cardproceso:hover {
+/* Overlay oscuro SOLO detrás del contenido */
+.cardproceso::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35); 
+  border-radius: 20px;
+  z-index: 0;   
+}
+
+/* Texto encima siempre */
+.cardproceso span,
+.cardproceso h3,
+.cardproceso p {
+  position: relative;
+  z-index: 1;   
+  color: #fff;
+  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+  font-weight: 700;
+}
+
+.cardproceso:hover,
+.cardproceso:focus {
   transform: scale(1.05) rotate(-2deg);
-  box-shadow: 0 15px 25px rgba(0, 255, 204, 0.5);
+  box-shadow: 0 15px 25px rgba(2, 56, 2, 0.5);
 }
 
 /* Modal */
 .modal {
   display: none;
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.8);
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -937,92 +938,72 @@ section {
 }
 
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
-/* Contenido del carrusel */
 .modal-content {
   position: relative;
-  background: #222;
+  background: #023117;
   border-radius: 15px;
-  padding: 20px;
-  width: 90%;
-  max-width: 800px;
+  padding: 0;
+  width: 95%;
+  max-width: 1200px;
   overflow: hidden;
   animation: zoomIn 0.5s ease;
 }
 
-@keyframes zoomIn {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
 .carouselproceso-title {
   text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 15px;
-  color: #00ffcc;
+  font-size: 1.5rem;
+  margin: 10px 0;
+  color: #ffffff;
   font-weight: bold;
 }
 
 .carouselproceso {
   display: flex;
   transition: transform 0.5s ease-in-out;
+  will-change: transform;
 }
 
 .carouselproceso img {
   min-width: 100%;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 /* Botones de navegación */
-.prevproceso,
-.nextproceso {
+.prevproceso, .nextproceso, .close {
   position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0,0,0,0.6);
   color: #fff;
   border: none;
   font-size: 2rem;
-  padding: 10px 15px;
   cursor: pointer;
   border-radius: 50%;
   transition: background 0.3s;
+  z-index: 1001;
 }
 
-.prevproceso:hover,
-.nextproceso:hover {
+.prevproceso, .nextproceso {
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px 15px;
+}
+
+.prevproceso:hover, .nextproceso:hover {
   background: #00ffcc;
   color: #000;
 }
 
-.prevproceso {
-  left: 10px;
-}
-.nextproceso {
-  right: 10px;
-}
+.prevproceso { left: 10px; }
+.nextproceso { right: 10px; }
 
-/* Cerrar */
 .close {
-  position: absolute;
   top: 10px;
   right: 15px;
   font-size: 2rem;
-  color: #fff;
-  cursor: pointer;
 }
 
 /* RESPONSIVE */
@@ -1032,9 +1013,8 @@ section {
     align-items: center;
   }
 
-  /* Cambiar las flechas a ↓ */
   .arrowproceso {
-    font-size: 1.5rem;
+    font-size: 2rem;
     margin: 1rem 0;
   }
 
@@ -1042,11 +1022,6 @@ section {
     content: "↓";
   }
 
-  .arrowproceso {
-    font-size: 1.5rem;
-  }
-
-  /* Ocultar el símbolo original (→) en móviles */
   .arrowproceso {
     color: transparent;
     position: relative;
@@ -1060,11 +1035,6 @@ section {
   }
 }
 
-@media (max-width: 480px) {
-  .arrowproceso::after {
-    font-size: 1.2rem;
-  }
-}
 
 /* banner3 */
 .cta-section {
