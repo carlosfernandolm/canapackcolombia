@@ -309,7 +309,7 @@ section {
 .imagen img {
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  max-height: var(--image-max-height);
+  max-height: 500px;
   width: 100%;
   object-fit: cover;
   transition: box-shadow var(--transition), transform var(--transition);
@@ -368,7 +368,6 @@ section {
   color: #fff;
   font-family: "Poppins", sans-serif;
   overflow: hidden;
-  margin-bottom: 2rem;
   box-shadow: var(--shadow);
 }
 .banner2 .overlay2 {
@@ -586,7 +585,7 @@ section {
 /* slider agropulp */
 .slideragro-container {
   position: relative;
-  max-width: 170rem;
+  max-width: 100rem;
   margin: auto;
   overflow: hidden;
   padding: 20px 0;
@@ -951,7 +950,8 @@ section {
   border-radius: 15px;
   padding: 0;
   width: 95%;
-  max-width: 1200px;
+  
+  max-width: 600px;
   overflow: hidden;
   animation: zoomIn 0.5s ease;
 }
@@ -996,7 +996,7 @@ section {
 }
 
 .prevproceso:hover, .nextproceso:hover {
-  background: #00ffcc;
+  background: #023117;
   color: #000;
 }
 
@@ -1031,7 +1031,7 @@ section {
   }
 
   .arrowproceso::after {
-    color: #00ffcc;
+    color: #023117;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -1053,7 +1053,6 @@ section {
   font-family: "Poppins", sans-serif;
   border-radius: var(--radius);
   overflow: hidden;
-  margin-bottom: 2rem;
   box-shadow: var(--shadow);
 }
 .cta-section .overlay3 {
@@ -1391,7 +1390,6 @@ footer {
   background: #111;
   color: #fff;
   padding: 48px 16px 16px;
-  border-top: 3px solid var(--verde);
 }
 
 .footer-container {
@@ -1413,7 +1411,7 @@ footer {
 }
 
 .footer-logo img {
-  max-width: 380px;
+  max-width: 360px;
   border-radius: 10px;
   margin-bottom: 16px;
 }
