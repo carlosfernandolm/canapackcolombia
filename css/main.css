@@ -265,10 +265,13 @@ section {
   font-weight: 800;
   text-align: center;
   letter-spacing: -0.5px;
-}
-.titulos {
   color: var(--green-500);
   margin-bottom: 2.2rem;
+}
+@media (max-width: 768px) {
+  .titulos {
+    font-size: 1.5rem;
+  }
 }
 
 .container {
@@ -905,7 +908,12 @@ section {
   padding: 1rem;
   overflow: hidden;
 }
-
+@media (max-width: 821px) {
+  .cardproceso {
+    flex: 1 1 clamp(280px, 20vw, 500px);
+    height: 300px;
+  }
+}
 /* Overlay oscuro SOLO detrás del contenido */
 .cardproceso::before {
   content: "";
@@ -1031,7 +1039,7 @@ section {
 }
 
 /* RESPONSIVE */
-@media (max-width: 768px) {
+@media (max-width: 821px) {
   .cardsproceso-container {
     flex-direction: column;
     align-items: center;
