@@ -1,170 +1,189 @@
 document.addEventListener("DOMContentLoaded", () => {
-    /* ---------------- MENÚ HAMBURGUESA ---------------- */
-    const menuToggle = document.getElementById("menu-toggle");
-    const navLinks = document.getElementById("nav-links");
+  /* ---------------- MENÚ HAMBURGUESA ---------------- */
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.getElementById("nav-links");
 
-    if (menuToggle && navLinks) {
-        menuToggle.addEventListener("click", () => {
-            navLinks.classList.toggle("active");
-            const expanded = menuToggle.getAttribute("aria-expanded") === "true";
-            menuToggle.setAttribute("aria-expanded", !expanded);
-        });
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      const expanded = menuToggle.getAttribute("aria-expanded") === "true";
+      menuToggle.setAttribute("aria-expanded", !expanded);
+    });
+  }
+
+  /* ---------------- SLIDER 1 (Fade: sección valores) ---------------- */
+  function initFadeSlider(
+    containerSelector,
+    slideSelector,
+    dotSelector,
+    interval = 4000
+  ) {
+    let index = 0;
+    const slides = document.querySelectorAll(slideSelector);
+    const dots = document.querySelectorAll(dotSelector);
+
+    if (!slides.length) return;
+
+    function showSlide(n) {
+      index = (n + slides.length) % slides.length;
+      slides.forEach((s) => (s.style.display = "none"));
+
+      if (dots.length) {
+        dots.forEach((d) => d.classList.remove("active"));
+      }
+
+      slides[index].style.display = "block";
+
+      if (dots.length > index) {
+        dots[index].classList.add("active");
+      }
+
+      const container = document.querySelector(containerSelector);
+      const img = slides[index].querySelector("img");
+      if (container && img) {
+        if (img.complete) {
+          container.style.height = img.offsetHeight + "px";
+        } else {
+          img.onload = () => {
+            container.style.height = img.offsetHeight + "px";
+          };
+        }
+      }
     }
 
-    /* ---------------- SLIDER 1 (Fade: sección valores) ---------------- */
-    function initFadeSlider(containerSelector, slideSelector, dotSelector, interval = 4000) {
-        let index = 0;
-        const slides = document.querySelectorAll(slideSelector);
-        const dots = document.querySelectorAll(dotSelector);
+    document
+      .querySelectorAll("[data-prev]")
+      .forEach((btn) =>
+        btn.addEventListener("click", () => showSlide(index - 1))
+      );
+    document
+      .querySelectorAll("[data-next]")
+      .forEach((btn) =>
+        btn.addEventListener("click", () => showSlide(index + 1))
+      );
 
-        if (!slides.length) return;
+    dots.forEach((dot, i) => dot.addEventListener("click", () => showSlide(i)));
 
-        function showSlide(n) {
-            index = (n + slides.length) % slides.length;
-            slides.forEach(s => s.style.display = "none");
+    showSlide(index);
+    setInterval(() => showSlide(index + 1), interval);
+  }
 
-            if (dots.length) {
-                dots.forEach(d => d.classList.remove("active"));
-            }
+  initFadeSlider(".slider-container", ".slide", ".dot");
 
-            slides[index].style.display = "block";
+  /* ---------------- SLIDER 2 (Carrusel: agro) ---------------- */
+  function initCarousel(
+    sliderSelector,
+    cardSelector,
+    prevSelector,
+    nextSelector,
+    interval = 6000
+  ) {
+    const slider = document.querySelector(sliderSelector);
+    const cards = document.querySelectorAll(cardSelector);
+    const prevBtn = document.querySelector(prevSelector);
+    const nextBtn = document.querySelector(nextSelector);
 
-            if (dots.length > index) {
-                dots[index].classList.add("active");
-            }
+    if (!slider || !cards.length) return;
 
-            const container = document.querySelector(containerSelector);
-            const img = slides[index].querySelector("img");
-            if (container && img) {
-                if (img.complete) {
-                    container.style.height = img.offsetHeight + "px";
-                } else {
-                    img.onload = () => {
-                        container.style.height = img.offsetHeight + "px";
-                    };
-                }
-            }
-        }
+    let index = 0;
 
-        document.querySelectorAll("[data-prev]").forEach(btn =>
-            btn.addEventListener("click", () => showSlide(index - 1))
-        );
-        document.querySelectorAll("[data-next]").forEach(btn =>
-            btn.addEventListener("click", () => showSlide(index + 1))
-        );
-
-        dots.forEach((dot, i) => dot.addEventListener("click", () => showSlide(i)));
-
-        showSlide(index);
-        setInterval(() => showSlide(index + 1), interval);
+    function getVisibleCards() {
+      if (window.innerWidth <= 600) return 1;
+      if (window.innerWidth <= 992) return 2;
+      return 3;
     }
 
-    initFadeSlider(".slider-container", ".slide", ".dot");
+    let visibleCards = getVisibleCards();
 
-    /* ---------------- SLIDER 2 (Carrusel: agro) ---------------- */
-    function initCarousel(sliderSelector, cardSelector, prevSelector, nextSelector, interval = 6000) {
-        const slider = document.querySelector(sliderSelector);
-        const cards = document.querySelectorAll(cardSelector);
-        const prevBtn = document.querySelector(prevSelector);
-        const nextBtn = document.querySelector(nextSelector);
+    function updateSliderPosition() {
+      if (!cards.length) return;
+      const cardWidth = cards[0].offsetWidth + 20;
+      slider.style.transform = `translateX(${-index * cardWidth}px)`;
+    }
 
-        if (!slider || !cards.length) return;
-
-        let index = 0;
-
-        function getVisibleCards() {
-            if (window.innerWidth <= 600) return 1;
-            if (window.innerWidth <= 992) return 2;
-            return 3;
+    if (nextBtn) {
+      nextBtn.addEventListener("click", () => {
+        if (index < cards.length - visibleCards) {
+          index++;
+        } else {
+          index = 0;
         }
-
-        let visibleCards = getVisibleCards();
-
-        function updateSliderPosition() {
-            if (!cards.length) return;
-            const cardWidth = cards[0].offsetWidth + 20;
-            slider.style.transform = `translateX(${-index * cardWidth}px)`;
-        }
-
-        if (nextBtn) {
-            nextBtn.addEventListener("click", () => {
-                if (index < cards.length - visibleCards) {
-                    index++;
-                } else {
-                    index = 0;
-                }
-                updateSliderPosition();
-            });
-        }
-
-        if (prevBtn) {
-            prevBtn.addEventListener("click", () => {
-                if (index > 0) {
-                    index--;
-                } else {
-                    index = cards.length - visibleCards;
-                }
-                updateSliderPosition();
-            });
-        }
-
-        //setInterval(() => {
-            //if (nextBtn) nextBtn.click();
-        //}, interval);
-
-        window.addEventListener("resize", () => {
-            visibleCards = getVisibleCards();
-            updateSliderPosition();
-        });
-
         updateSliderPosition();
+      });
     }
 
-    initCarousel(".slideragro", ".card", ".prevagro", ".nextagro");
+    if (prevBtn) {
+      prevBtn.addEventListener("click", () => {
+        if (index > 0) {
+          index--;
+        } else {
+          index = cards.length - visibleCards;
+        }
+        updateSliderPosition();
+      });
+    }
+
+    //setInterval(() => {
+    //if (nextBtn) nextBtn.click();
+    //}, interval);
+
+    window.addEventListener("resize", () => {
+      visibleCards = getVisibleCards();
+      updateSliderPosition();
+    });
+
+    updateSliderPosition();
+  }
+
+  initCarousel(".slideragro", ".card", ".prevagro", ".nextagro");
 });
 
 // ...existing code...
 
 // ANIMACIÓN FADE-IN AL HACER SCROLL
 function revealOnScroll() {
-    const reveals = document.querySelectorAll('.reveal, .card, .cardbeneficios, .producto-card, .beneficios, .banner-top, .cta-section, .proceso img');
-    const windowHeight = window.innerHeight;
-    reveals.forEach(el => {
-        const elementTop = el.getBoundingClientRect().top;
-        if (elementTop < windowHeight - 60) {
-            el.classList.add('visible');
-        } else {
-            el.classList.remove('visible');
-        }
-    });
+  const reveals = document.querySelectorAll(
+    ".reveal, .card, .cardbeneficios, .producto-card, .beneficios, .banner-top, .cta-section, .proceso img"
+  );
+  const windowHeight = window.innerHeight;
+  reveals.forEach((el) => {
+    const elementTop = el.getBoundingClientRect().top;
+    if (elementTop < windowHeight - 60) {
+      el.classList.add("visible");
+    } else {
+      el.classList.remove("visible");
+    }
+  });
 }
-window.addEventListener('scroll', revealOnScroll);
-window.addEventListener('DOMContentLoaded', revealOnScroll);
+window.addEventListener("scroll", revealOnScroll);
+window.addEventListener("DOMContentLoaded", revealOnScroll);
 
 // EFECTO RIPPLE EN BOTONES
-document.addEventListener('click', function(e) {
-    const btn = e.target.closest('.btn2, .btn-cta, .btn-primary, .btn-contacto, .btn-submit');
-    if (btn) {
-        const ripple = document.createElement('span');
-        ripple.className = 'ripple';
-        const rect = btn.getBoundingClientRect();
-        ripple.style.left = (e.clientX - rect.left) + 'px';
-        ripple.style.top = (e.clientY - rect.top) + 'px';
-        btn.appendChild(ripple);
-        setTimeout(() => ripple.remove(), 600);
-    }
+document.addEventListener("click", function (e) {
+  const btn = e.target.closest(
+    ".btn2, .btn-cta, .btn-primary, .btn-contacto, .btn-submit"
+  );
+  if (btn) {
+    const ripple = document.createElement("span");
+    ripple.className = "ripple";
+    const rect = btn.getBoundingClientRect();
+    ripple.style.left = e.clientX - rect.left + "px";
+    ripple.style.top = e.clientY - rect.top + "px";
+    btn.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  }
 });
 
 // NAVBAR SHADOW AL HACER SCROLL
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    if (navbar) {
-        if (window.scrollY > 20) {
-            navbar.classList.add('scrolled');
-        } else {
-            navbar.classList.remove('scrolled');
-        }
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar");
+  if (navbar) {
+    if (window.scrollY > 20) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
     }
+  }
 });
 
 // ...existing code...
@@ -178,5 +197,72 @@ document.addEventListener("DOMContentLoaded", () => {
         goToSlide(idx);
       }
     });
+  }
+});
+
+const cardsproceso = document.querySelectorAll(".cardproceso");
+const modalproceso = document.getElementById("modal");
+const carouselproceso = document.getElementById("carouselproceso");
+const carouselprocesoTitle = document.getElementById("carouselprocesoTitle");
+const closeproceso = document.querySelector(".close");
+const prevproceso = document.querySelector(".prevproceso");
+const nextproceso = document.querySelector(".nextproceso");
+
+let currentIndex = 0;
+let images = [];
+let autoplay;
+
+cardsproceso.forEach((card) => {
+  card.addEventListener("click", () => {
+    images = card.dataset.images.split(",");
+    carouselproceso.innerHTML = images
+      .map((img) => `<img src="${img}" alt="imagen">`)
+      .join("");
+    carouselproceso.style.transform = `translateX(0%)`;
+    currentIndex = 0;
+    carouselprocesoTitle.textContent = card.dataset.title;
+    modalproceso.style.display = "flex";
+    startAutoplay();
+  });
+});
+
+function showSlide(index) {
+  if (index >= images.length) currentIndex = 0;
+  else if (index < 0) currentIndex = images.length - 1;
+  else currentIndex = index;
+  carouselproceso.style.transform = `translateX(${-currentIndex * 100}%)`;
+}
+
+function startAutoplay() {
+  autoplay = setInterval(() => {
+    showSlide(currentIndex + 1);
+  }, 3000);
+}
+
+function stopAutoplay() {
+  clearInterval(autoplay);
+}
+
+nextproceso.addEventListener("click", () => {
+  stopAutoplay();
+  showSlide(currentIndex + 1);
+  startAutoplay();
+});
+
+prevproceso.addEventListener("click", () => {
+  stopAutoplay();
+  showSlide(currentIndex - 1);
+  startAutoplay();
+});
+
+closeproceso.addEventListener("click", () => {
+  modalproceso.style.display = "none";
+  stopAutoplay();
+});
+
+window.addEventListener("click", (e) => {
+  if (e.target == modalproceso) {
+    modalproceso.style.display = "none";
+    stopAutoplay();
   }
 });

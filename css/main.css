@@ -712,12 +712,12 @@ section {
   opacity: 0.85;
   font-size: 1.2rem;
 }
-.subproductos-contenido{
+.subproductos-contenido {
   display: flex;
   justify-content: space-around;
 }
 @media (max-width: 768px) {
-  .subproductos-contenido{
+  .subproductos-contenido {
     flex-direction: column;
     align-items: center;
   }
@@ -854,18 +854,216 @@ section {
 
 /* PROCESO */
 .proceso {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #1e1e1e;
+  color: #fff;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+/* Contenedor de tarjetas */
+.cardsproceso-container {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem;
+  position: relative;
+}
+
+/* Flechas entre tarjetas */
+.arrowproceso {
+  font-size: 2rem;
+  color: #00ffcc;
+  align-self: center;
+  animation: pulse 1.5s infinite;
+  transition: all 0.3s ease;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+/* Tarjetas */
+.cardproceso {
+  width: 280px;
+  height: 380px;
+  background: #fff;
+  color: #000;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.cardproceso:hover {
+  transform: scale(1.05) rotate(-2deg);
+  box-shadow: 0 15px 25px rgba(0, 255, 204, 0.5);
+}
+
+/* Modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
-  padding: 36px;
+  z-index: 1000;
+  animation: fadeIn 0.5s ease;
 }
-.proceso img {
-  max-width: 100%;
-  height: auto;
-  width: 1300px;
-  display: block;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Contenido del carrusel */
+.modal-content {
+  position: relative;
+  background: #222;
+  border-radius: 15px;
+  padding: 20px;
+  width: 90%;
+  max-width: 800px;
+  overflow: hidden;
+  animation: zoomIn 0.5s ease;
+}
+
+@keyframes zoomIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.carouselproceso-title {
+  text-align: center;
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #00ffcc;
+  font-weight: bold;
+}
+
+.carouselproceso {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carouselproceso img {
+  min-width: 100%;
+  border-radius: 10px;
+}
+
+/* Botones de navegación */
+.prevproceso,
+.nextproceso {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  border: none;
+  font-size: 2rem;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: background 0.3s;
+}
+
+.prevproceso:hover,
+.nextproceso:hover {
+  background: #00ffcc;
+  color: #000;
+}
+
+.prevproceso {
+  left: 10px;
+}
+.nextproceso {
+  right: 10px;
+}
+
+/* Cerrar */
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .cardsproceso-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Cambiar las flechas a ↓ */
+  .arrowproceso {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+  }
+
+  .arrowproceso::after {
+    content: "↓";
+  }
+
+  .arrowproceso {
+    font-size: 1.5rem;
+  }
+
+  /* Ocultar el símbolo original (→) en móviles */
+  .arrowproceso {
+    color: transparent;
+    position: relative;
+  }
+
+  .arrowproceso::after {
+    color: #00ffcc;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 480px) {
+  .arrowproceso::after {
+    font-size: 1.2rem;
+  }
 }
 
 /* banner3 */
@@ -1057,7 +1255,6 @@ textarea {
 .whatsapp-btn i {
   font-size: 1.2rem;
 }
-
 
 /* RESPONSIVE */
 @media (min-width: 900px) {

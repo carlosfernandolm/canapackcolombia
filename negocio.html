@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="es">
   <head>
-    <meta name="description" content="Cañapack - Soluciones circulares con fibras agroindustriales.">
-    <link rel="icon" href="./img/favicon.ico">
-    <meta property="og:title" content="Cañapack Colombia">
-    <meta property="og:description" content="Conectamos residuos con industria para crear valor sostenible.">
-    
+    <meta
+      name="description"
+      content="Cañapack - Soluciones circulares con fibras agroindustriales."
+    />
+    <link rel="icon" href="./img/favicon.ico" />
+    <meta property="og:title" content="Cañapack Colombia" />
+    <meta
+      property="og:description"
+      content="Conectamos residuos con industria para crear valor sostenible."
+    />
+
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>negocio</title>
@@ -70,13 +76,13 @@
         <div class="slideragro-container">
           <button class="prevagro">&#10094;</button>
           <div class="slideragro">
-
             <div class="card">
               <img src="./img/plantaciones.png" alt="Plantaciones" />
               <div class="overlay">
                 <h2>PLANTACIONES</h2>
                 <p>
-                  Que generen residuos como hojas, tallos o frutos no utilizados.
+                  Que generen residuos como hojas, tallos o frutos no
+                  utilizados.
                 </p>
               </div>
             </div>
@@ -86,7 +92,8 @@
               <div class="overlay">
                 <h2>Extractoras</h2>
                 <p>
-                  Con procesos industriales que generen bagazo o lodos aprovechables.
+                  Con procesos industriales que generen bagazo o lodos
+                  aprovechables.
                 </p>
               </div>
             </div>
@@ -96,7 +103,8 @@
               <div class="overlay">
                 <h2>Distribuidoras</h2>
                 <p>
-                  Interesadas en comercializar fertilizantes ecológicos derivados.
+                  Interesadas en comercializar fertilizantes ecológicos
+                  derivados.
                 </p>
               </div>
             </div>
@@ -118,9 +126,45 @@
       <div class="boton">
         <a href="./contacto.html" class="btn2">CONVIERTETE EN NUESTRO SOCIO</a>
       </div>
-      <!-- imagen proceso -->
+
+      <!-- proceso -->
       <section class="proceso">
-        <img src="./img/proceso.jpeg" alt="Nuestro Proceso" />
+        <div class="cardsproceso-container">
+          <div
+            class="cardproceso"
+            data-title="Carrusel 1"
+            data-images="./img/bagazo.jpg,./img/bambu.png,./img/bijao.png"
+          >
+            Titulo 1
+          </div>
+          <div class="arrowproceso">→</div>
+          <div
+            class="cardproceso"
+            data-title="Carrusel 2"
+            data-images="https://picsum.photos/600/400?random=4,https://picsum.photos/600/400?random=5,https://picsum.photos/600/400?random=6"
+          >
+            Titulo 2
+          </div>
+          <div class="arrowproceso">→</div>
+          <div
+            class="cardproceso"
+            data-title="Carrusel 3"
+            data-images="https://picsum.photos/600/400?random=7,https://picsum.photos/600/400?random=8,https://picsum.photos/600/400?random=9"
+          >
+            Titulo 3
+          </div>
+        </div>
+
+        <!-- Modal Carrusel -->
+        <div class="modal" id="modal">
+          <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="carouselproceso-title" id="carouselprocesoTitle"></div>
+            <div class="carouselproceso" id="carouselproceso"></div>
+            <button class="prevproceso">&#10094;</button>
+            <button class="nextproceso">&#10095;</button>
+          </div>
+        </div>
       </section>
 
       <!--banner2 -->
@@ -133,55 +177,61 @@
       </section>
     </main>
     <!-- FOOTER -->
-<footer>
-  <div class="footer-container">
-    <!-- Logo y redes -->
-    <div class="footer-column footer-logo">
-      <img src="./img/logo.png" alt="Cañapack Colombia" />
-      <div class="social-icons">
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+    <footer>
+      <div class="footer-container">
+        <!-- Logo y redes -->
+        <div class="footer-column footer-logo">
+          <img src="./img/logo.png" alt="Cañapack Colombia" />
+          <div class="social-icons">
+            <a href="#" aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin"></i
+            ></a>
+            <a href="#" aria-label="Twitter"
+              ><i class="fab fa-x-twitter"></i
+            ></a>
+          </div>
+        </div>
+
+        <!-- Menú -->
+        <div class="footer-column">
+          <p class="column-title">Enlaces</p>
+          <ul class="footer-links">
+            <li><a href="./index.html">Inicio</a></li>
+            <li><a href="./Agropulp.html">Agropulp Green Pulp</a></li>
+            <li><a href="./negocio.html">Nuestro negocio</a></li>
+            <li><a href="./clientes.html">Clientes</a></li>
+            <li><a href="./contacto.html">Contacto</a></li>
+          </ul>
+        </div>
+
+        <!-- Contacto Colombia -->
+        <div class="footer-column">
+          <p class="column-title">Colombia</p>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Dirección</li>
+            <li><i class="fas fa-envelope"></i> comercial@canyapack.com.co</li>
+            <li><i class="fas fa-phone"></i> Teléfono</li>
+          </ul>
+        </div>
+
+        <!-- Contacto España -->
+        <div class="footer-column">
+          <p class="column-title">España</p>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> Dirección</li>
+            <li><i class="fas fa-envelope"></i> info@canyapack.com</li>
+            <li><i class="fas fa-phone"></i> Teléfono</li>
+          </ul>
+        </div>
       </div>
-    </div>
 
-    <!-- Menú -->
-    <div class="footer-column">
-      <p class="column-title">Enlaces</p>
-      <ul class="footer-links">
-        <li><a href="./index.html">Inicio</a></li>
-        <li><a href="./Agropulp.html">Agropulp Green Pulp</a></li>
-        <li><a href="./negocio.html">Nuestro negocio</a></li>
-        <li><a href="./clientes.html">Clientes</a></li>
-        <li><a href="./contacto.html">Contacto</a></li>
-      </ul>
-    </div>
-
-    <!-- Contacto Colombia -->
-    <div class="footer-column">
-      <p class="column-title">Colombia</p>
-      <ul class="footer-contact">
-        <li><i class="fas fa-map-marker-alt"></i> Dirección</li>
-        <li><i class="fas fa-envelope"></i> comercial@canyapack.com.co</li>
-        <li><i class="fas fa-phone"></i> Teléfono</li>
-      </ul>
-    </div>
-
-    <!-- Contacto España -->
-    <div class="footer-column">
-      <p class="column-title">España</p>
-      <ul class="footer-contact">
-        <li><i class="fas fa-map-marker-alt"></i> Dirección</li>
-        <li><i class="fas fa-envelope"></i> info@canyapack.com</li>
-        <li><i class="fas fa-phone"></i> Teléfono</li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="footer-bottom">
-    <p>© 2025 Cañapack Colombia. Todos los derechos reservados.</p>
-  </div>
-</footer>
+      <div class="footer-bottom">
+        <p>© 2025 Cañapack Colombia. Todos los derechos reservados.</p>
+      </div>
+    </footer>
 
     <script src="./js/main.js"></script>
   </body>
