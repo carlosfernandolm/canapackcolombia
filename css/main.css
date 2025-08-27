@@ -11,7 +11,7 @@
   --shadow: 0 8px 32px rgba(30, 70, 32, 0.1), 0 1.5px 6px rgba(0, 0, 0, 0.07);
   --shadow-hover: 0 12px 32px rgba(30, 70, 32, 0.18),
     0 2px 8px rgba(0, 0, 0, 0.1);
-  --max-width: 1500px;
+  --max-width: 1920px;
   --section-padding: 4rem;
   --image-max-height: 350px;
   --radius: 18px;
@@ -125,7 +125,7 @@ img {
   border-radius: 12px;
   transition: background var(--transition), color var(--transition),
     box-shadow var(--transition);
-  font-size: 1.4rem;
+  font-size: 1.6rem;
 }
 .nav-links a:hover,
 .nav-links a.active {
@@ -189,7 +189,7 @@ img {
   margin: 5rem;
   padding: 36px 32px;
   border-radius: 18px;
-  max-width: 800px;
+  max-width: 1000px;
   text-align: center;
   animation: fadeInUp 1s;
   background: rgba(0, 0, 0, 0.466);
@@ -214,7 +214,7 @@ img {
   }
 }
 .hero-content h1 {
-  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-size: clamp(4rem, 4vw, 2.8rem);
   margin-bottom: 18px;
   font-weight: 800;
   letter-spacing: -1px;
@@ -224,7 +224,7 @@ img {
 .hero-content .lead {
   margin-bottom: 22px;
   opacity: 0.95;
-  font-size: 1.18rem;
+  font-size: 2rem;
   color: var(--white);
 }
 
@@ -235,7 +235,7 @@ img {
   border-radius: 999px;
   font-weight: 700;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 2rem;
   box-shadow: 0 2px 8px rgba(4, 109, 56, 0.1);
   border: none;
   transition: background var(--transition), box-shadow var(--transition),
@@ -261,7 +261,7 @@ section {
 }
 
 .titulos {
-  font-size: clamp(1.7rem, 2.5vw, 2.2rem);
+  font-size: clamp(3rem, 2.5vw, 2.2rem);
   font-weight: 800;
   text-align: center;
   letter-spacing: -0.5px;
@@ -288,13 +288,13 @@ section {
   flex: 1;
 }
 .texto h3 {
-  font-size: clamp(1.2rem, 2vw, 1.5rem);
+  font-size: clamp(1.8rem, 2vw, 1.5rem);
   color: var(--green-500);
-  margin-bottom: 14px;
+  margin-bottom: 20px;
   font-weight: 700;
 }
 .texto p {
-  font-size: 1.08rem;
+  font-size: 1.4rem;
   color: var(--gris-oscuro);
   margin-bottom: 14px;
   line-height: 1.7;
@@ -304,6 +304,7 @@ section {
   flex: 1;
   display: flex;
   justify-content: center;
+  
 }
 .imagen img {
   border-radius: var(--radius);
@@ -312,6 +313,7 @@ section {
   width: 100%;
   object-fit: cover;
   transition: box-shadow var(--transition), transform var(--transition);
+  
 }
 @media (max-width: 768px) {
   .imagen img {
@@ -330,7 +332,7 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 320px;
+  min-height: 900px;
 }
 .banner-overlay {
   background: rgba(0, 0, 0, 0.18);
@@ -344,13 +346,13 @@ section {
   border: 1px solid rgba(255, 255, 255, 0.25);
 }
 .banner-overlay h2 {
-  font-size: clamp(1.3rem, 2vw, 1.7rem);
+  font-size: clamp(3.3rem, 2vw, 1.7rem);
   margin-bottom: 10px;
   font-weight: 700;
   color: var(--white);
 }
 .banner-overlay p {
-  font-size: 1.08rem;
+  font-size: 1.5rem;
   color: var(--white);
 }
 
@@ -358,7 +360,7 @@ section {
 .banner2 {
   position: relative;
   background: url("../img/banner2.png") center/cover no-repeat;
-  height: 300px;
+  height: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -379,17 +381,17 @@ section {
 .banner2 .content2 {
   position: relative;
   z-index: 2;
-  max-width: 700px;
+  max-width: 1700px;
   padding: 24px;
 }
 .banner2 h2 {
-  font-size: 2rem;
+  font-size: 3.3rem;
   font-weight: 800;
   margin-bottom: 12px;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
 }
 .banner2 p {
-  font-size: 1.15rem;
+  font-size: 1.5rem;
   margin-bottom: 22px;
   color: #e0f7e9;
 }
@@ -402,7 +404,7 @@ section {
   border-radius: 30px;
   transition: all var(--transition);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  font-size: 1.08rem;
+  font-size: 1.5rem;
   letter-spacing: 0.5px;
   border: none;
   cursor: pointer;
@@ -433,6 +435,7 @@ section {
   display: block;
   max-width: 100%;
   height: auto;
+  width: 100%;
   padding: 10px;
   margin: 0 auto;
   border-radius: var(--radius);
@@ -583,7 +586,7 @@ section {
 /* slider agropulp */
 .slideragro-container {
   position: relative;
-  max-width: 1920px;
+  max-width: 170rem;
   margin: auto;
   overflow: hidden;
   padding: 20px 0;
@@ -864,7 +867,7 @@ section {
 
 /* Flechas entre tarjetas */
 .arrowproceso {
-  font-size: 4rem;
+  font-size: 8rem;
   color: #015015;
   align-self: center;
   animation: pulse 1.5s infinite;
@@ -880,7 +883,7 @@ section {
 /* Tarjetas */
 .cardproceso {
   position: relative;
-  flex: 1 1 clamp(280px, 30vw, 500px);
+  flex: 1 1 clamp(180px, 20vw, 500px);
   aspect-ratio: 1 / 1;
   background-size: cover;
   background-position: center;
@@ -1410,7 +1413,7 @@ footer {
 }
 
 .footer-logo img {
-  max-width: 180px;
+  max-width: 380px;
   border-radius: 10px;
   margin-bottom: 16px;
 }
@@ -1423,7 +1426,7 @@ footer {
 
 .social-icons a {
   color: #fff;
-  font-size: 22px;
+  font-size: 2.5rem;
   transition: color var(--transition), transform var(--transition);
 }
 
@@ -1435,7 +1438,7 @@ footer {
 .column-title {
   font-weight: 700;
   margin-bottom: 14px;
-  font-size: 1.1rem;
+  font-size: 1.4rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 6px;
 }
@@ -1445,6 +1448,7 @@ footer {
   list-style: none;
   padding: 0;
   margin: 0;
+  font-size: 1rem;
 }
 
 .footer-links li,
@@ -1463,7 +1467,7 @@ footer {
 }
 
 .footer-contact {
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .footer-contact li {
@@ -1479,7 +1483,7 @@ footer {
 .footer-bottom {
   margin-top: 32px;
   text-align: center;
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.7);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 12px;
