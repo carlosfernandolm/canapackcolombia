@@ -409,6 +409,12 @@ section {
   border: none;
   cursor: pointer;
 }
+@media (max-width: 768px) {
+
+  .btn2 {
+    font-size: 1rem;
+  }
+}
 .btn2 {
   background: linear-gradient(90deg, var(--verde) 60%, var(--green-600) 100%);
   color: #fff;
