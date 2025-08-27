@@ -214,7 +214,7 @@ img {
   }
 }
 .hero-content h1 {
-  font-size: clamp(4rem, 4vw, 2.8rem);
+  font-size: clamp(3rem, 4vw, 2.8rem);
   margin-bottom: 18px;
   font-weight: 800;
   letter-spacing: -1px;
@@ -224,7 +224,7 @@ img {
 .hero-content .lead {
   margin-bottom: 22px;
   opacity: 0.95;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: var(--white);
 }
 
@@ -235,7 +235,7 @@ img {
   border-radius: 999px;
   font-weight: 700;
   text-decoration: none;
-  font-size: 2rem;
+  font-size: 1.5rem;
   box-shadow: 0 2px 8px rgba(4, 109, 56, 0.1);
   border: none;
   transition: background var(--transition), box-shadow var(--transition),
@@ -304,7 +304,6 @@ section {
   flex: 1;
   display: flex;
   justify-content: center;
-  
 }
 .imagen img {
   border-radius: var(--radius);
@@ -313,7 +312,6 @@ section {
   width: 100%;
   object-fit: cover;
   transition: box-shadow var(--transition), transform var(--transition);
-  
 }
 @media (max-width: 768px) {
   .imagen img {
@@ -874,9 +872,18 @@ section {
 }
 
 @keyframes pulse {
-  0% { transform: scale(1); opacity: 0.7; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); opacity: 0.7; }
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
 }
 
 /* Tarjetas */
@@ -904,9 +911,9 @@ section {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.35); 
+  background: rgba(0, 0, 0, 0.35);
   border-radius: 20px;
-  z-index: 0;   
+  z-index: 0;
 }
 
 /* Texto encima siempre */
@@ -914,9 +921,9 @@ section {
 .cardproceso h3,
 .cardproceso p {
   position: relative;
-  z-index: 1;   
+  z-index: 1;
   color: #fff;
-  text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.8);
   font-weight: 700;
 }
 
@@ -930,9 +937,11 @@ section {
 .modal {
   display: none;
   position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.8);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
   justify-content: center;
   align-items: center;
   z-index: 1000;
@@ -940,8 +949,12 @@ section {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .modal-content {
@@ -950,7 +963,7 @@ section {
   border-radius: 15px;
   padding: 0;
   width: 95%;
-  
+
   max-width: 600px;
   overflow: hidden;
   animation: zoomIn 0.5s ease;
@@ -977,9 +990,11 @@ section {
 }
 
 /* Botones de navegación */
-.prevproceso, .nextproceso, .close {
+.prevproceso,
+.nextproceso,
+.close {
   position: absolute;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0, 0, 0, 0.6);
   color: #fff;
   border: none;
   font-size: 2rem;
@@ -989,19 +1004,25 @@ section {
   z-index: 1001;
 }
 
-.prevproceso, .nextproceso {
+.prevproceso,
+.nextproceso {
   top: 50%;
   transform: translateY(-50%);
   padding: 10px 15px;
 }
 
-.prevproceso:hover, .nextproceso:hover {
+.prevproceso:hover,
+.nextproceso:hover {
   background: #023117;
   color: #000;
 }
 
-.prevproceso { left: 10px; }
-.nextproceso { right: 10px; }
+.prevproceso {
+  left: 10px;
+}
+.nextproceso {
+  right: 10px;
+}
 
 .close {
   top: 10px;
@@ -1038,11 +1059,10 @@ section {
   }
 }
 
-
 /* banner3 */
 .cta-section {
   position: relative;
-  background: url(../img/banner6.png) center center no-repeat;
+  background: url(../img/plantacionescana.jpg) center center no-repeat;
   background-size: cover;
   height: 50vh;
   display: flex;
@@ -1051,7 +1071,6 @@ section {
   text-align: center;
   color: #fff;
   font-family: "Poppins", sans-serif;
-  border-radius: var(--radius);
   overflow: hidden;
   box-shadow: var(--shadow);
 }
@@ -1305,7 +1324,7 @@ textarea {
   }
   .banner2,
   .cta-section {
-    height: 220px;
+    height: 320px;
   }
   .hero-content {
     padding: 18px 8px;
@@ -1488,7 +1507,7 @@ footer {
 }
 
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 821px) {
   .footer-container {
     flex-direction: column;
     align-items: center;
