@@ -90,13 +90,8 @@ img {
 }
 
 .logo img {
-  height: 64px;
+  height: 50px;
   border-radius: 12px;
-}
-@media (max-width: 768px) {
-  .logo img {
-    height: 50px;
-  }
 }
 
 .menu-toggle {
@@ -125,7 +120,15 @@ img {
   border-radius: 12px;
   transition: background var(--transition), color var(--transition),
     box-shadow var(--transition);
-  font-size: 1.6rem;
+  font-size: 1rem;
+}
+@media (max-width: 1093px) {
+  .nav-links a {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+  }
 }
 .nav-links a:hover,
 .nav-links a.active {
