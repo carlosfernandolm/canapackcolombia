@@ -1425,7 +1425,7 @@ textarea {
 footer {
   background: #111;
   color: #fff;
-  padding: 48px 16px 16px;
+  padding: 48px 2px 2px;
 }
 
 .footer-container {
@@ -1436,7 +1436,6 @@ footer {
   gap: 32px;
   justify-content: space-between;
 }
-
 .footer-column {
   flex: 1;
   min-width: 200px;
@@ -1447,7 +1446,7 @@ footer {
 }
 
 .footer-logo img {
-  max-width: 360px;
+  max-width: 200px;
   border-radius: 10px;
   margin-bottom: 16px;
 }
@@ -1460,7 +1459,7 @@ footer {
 
 .social-icons a {
   color: #fff;
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   transition: color var(--transition), transform var(--transition);
 }
 
@@ -1472,7 +1471,7 @@ footer {
 .column-title {
   font-weight: 700;
   margin-bottom: 14px;
-  font-size: 1.4rem;
+  font-size: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   padding-bottom: 6px;
 }
@@ -1482,7 +1481,7 @@ footer {
   list-style: none;
   padding: 0;
   margin: 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .footer-links li,
@@ -1501,7 +1500,7 @@ footer {
 }
 
 .footer-contact {
-  font-size: 1rem;
+  font-size: 0.9rem;
 }
 
 .footer-contact li {
